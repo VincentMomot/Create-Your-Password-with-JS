@@ -24,72 +24,41 @@ while(numcheck==0){
     }
 }
 
-var low;
-var up;
-var numbers;
-var special;
+
+
 var check=0;
 while(check==0){  
-  var low=2;
-  var up=2;
-  var numbers=2;
-  var special=2;
+  var low=0;
+  var up=0;
+  var numbers=0;
+  var special=0; 
 
-  while(low!=0 && low!=1){
-    low=prompt("Does your password require lowercase letters? please enter: y/n or Y/N");
+    low=prompt("Password contains lowercase letters?\nYes: y or Y\nNo: Press enter or anything else.");
       if(low=="y" || low=="Y"){
         check=1;
-        low=1;
       }
-      else if(low=="n" || low=="N"){
-        low=0;
-      }
-  } 
-  while(up!=0 && up!=1){
-    up=prompt("Does your password require uppercase letters? please enter: y/n or Y/N");
+
+    up=prompt("Password contains uppercase letters?\nYes: y or Y\nNo: Press enter or anything else.");
     if(up=="y" || up=="Y"){
       check=1;
-      up=1;
     }
-    else if(up=="n" || up=="N"){
-      up=0;
-    }
-  } 
+  
 
-  while(numbers!=0 && numbers!=1){
-    numbers=prompt("Does your password require numbers? please enter: y/n or Y/N");
+    numbers=prompt("Password contains numbers?\nYes: y or Y\nNo: Press enter or anything else.");
     if(numbers=="y" || numbers=="Y"){
       check=1;
-      numbers=1;
     }
-    else if(numbers=="n" || numbers=="N"){
-      numbers=0;
-    }
-  } 
-  while(special!=0 && special!=1){
-    special=prompt("Does your password require special characters? please enter: y/n or Y/N");
+  
+    special=prompt("Password contains special characters?\nYes: y or Y\nNo: Press enter or anything else.");
     if(special=="y" || special=="Y"){
       check=1;
-      special=1;
-    }
-    else if(special=="n" || special=="N"){
-      special=0;
-    }
-  } 
+      }
+    
+  
   if(check==0){
-    alert("Try again. Please use at least one type of character with y/n or Y/N.")
+    alert("Please use at least one type of character and select it with 'y' or 'Y'.")
   }
 } 
-console.log(check,low,up,numbers,special);
-
-
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-
-  // passwordText.value = password;
-
-}
-
 
 // lowercase letters 26
 var a=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -113,7 +82,59 @@ var Anumsp=A.concat(num,sp);
 var Asp=A.concat(sp);
 var numsp=num.concat(sp);
 
-console.log(aAnumsp[94]);
+const pswd=[];
+
+for( var i=0; i<len; i++){
+if(low=="y" && up=="y" && numbers=="y" && special=="y"){
+pswd[i]=aAnumsp[Math.floor(Math.random()*aAnumsp.length)];
+}
+else if(low=="y" && numbers=="y" && special=="y"){
+  pswd[i]=anumsp[Math.floor(Math.random()*anumsp.length)];
+}
+else if(low=="y" && up=="y" && special=="y"){
+  pswd[i]=aAsp[Math.floor(Math.random()*aAsp.length)];
+}
+else if(low=="y" && up=="y" && numbers=="y"){
+  pswd[i]=aAnum[Math.floor(Math.random()*aAnum.length)];
+}
+else if(up=="y" && numbers=="y" && special=="y"){
+  pswd[i]=Anumsp[Math.floor(Math.random()*Anumsp.length)];
+}
+else if(low=="y" && special=="y"){
+  pswd[i]=asp[Math.floor(Math.random()*asp.length)];
+}
+else if(low=="y" && up=="y" ){
+  pswd[i]=aA[Math.floor(Math.random()*aA.length)];
+}
+else if(low=="y" && numbers=="y"){
+  pswd[i]=anum[Math.floor(Math.random()*anum.length)];
+}
+else if(up=="y" && numbers=="y"){
+  pswd[i]=Anum[Math.floor(Math.random()*Anum.length)];
+}
+else if(up=="y" && special=="y"){
+  pswd[i]=Asp[Math.floor(Math.random()*Asp.length)];
+}
+else if(numbers=="y" && special=="y"){
+  pswd[i]=numsp[Math.floor(Math.random()*numsp.length)];
+}
+else if(low=="y"){
+  pswd[i]=a[Math.floor(Math.random()*a.length)];
+}
+else if(up=="y"){
+  pswd[i]=A[Math.floor(Math.random()*A.length)];
+}
+else if(numbers=="y"){
+  pswd[i]=num[Math.floor(Math.random()*num.length)];
+}
+else{
+  pswd[i]=sp[Math.floor(Math.random()*sp.length)];
+}
+}
+  var pswrd=pswd.join("");
+  console.log(pswrd); 
+  document.getElementById("password").value=pswrd;
+}
 
 
 
