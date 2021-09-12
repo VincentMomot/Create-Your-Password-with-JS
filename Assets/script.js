@@ -82,7 +82,6 @@ if(special=="y"){
 var sp=[" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", ">", "=", "?", "@", '\\', '\[', '\]', "^", "_", "`", "}", "{", "|", "~"];
   arr=arr.concat(sp);
 }
-console.log(arr)
 
 //takes characters from the banks and picks a random one for the desired length of the password
 for(var i=0; i<len; i++){

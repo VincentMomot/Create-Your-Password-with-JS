@@ -1,7 +1,9 @@
+
 # Vincent D-Momot's Password Generator
 ***
 
-Description: This website is to generate random passwords after being given criteria from the user
+Description: 
+This website is to generate random passwords after being given criteria from the user
 
 ### Website Features:
 1) User input for custom password requirements
@@ -16,8 +18,9 @@ Description: This website is to generate random passwords after being given crit
 * Writing a variable to a page
 * Making a site use less computing power by storing variables only when needed
 
+Generate your own password at my [Password Generator Website!](https://vincentmomot.github.io/Create-Your-Password-with-JS/)
 
-Click [vincentmomot.github.io/Vincent-D-Momot-s-Portfolio](https://vincentmomot.github.io/Vincent-D-Momot-s-Portfolio/index) to go to my Website. 
+Click [vincentmomot.github.io/Vincent-D-Momot-s-Portfolio](https://vincentmomot.github.io/Vincent-D-Momot-s-Portfolio/index) to see my other projects! 
 
 Screenshots of the site:
-![This is an image of my main page](Assets/mainpage.png)
+![This is an image of my main page](Assets/pswd.png)
