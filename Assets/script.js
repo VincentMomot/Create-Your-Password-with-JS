@@ -7,6 +7,8 @@ generateBtn.addEventListener("click", writePassword);
 // Write password to the #password input
 function writePassword() {
 
+
+  //Checks that input is a integer between 8 and 128 inclusively
 var numcheck=0;
 while(numcheck==0){
     var len=prompt("Enter the length of the password between 8 and 128 inclusively")
@@ -24,15 +26,16 @@ while(numcheck==0){
     }
 }
 
-
-
+//while loop ensures at least 1 out of 4 types of characters is used
 var check=0;
 while(check==0){  
+  //initializes variables as 0    This is important!
   var low=0;
   var up=0;
   var numbers=0;
   var special=0; 
 
+  //asks the user for the 4 types of characters to use in the password
     low=prompt("Password contains lowercase letters?\nYes: y or Y\nNo: Press enter or anything else.");
       if(low=="y" || low=="Y"){
         check=1;
@@ -54,85 +57,40 @@ while(check==0){
       check=1;
       }
     
-  
   if(check==0){
     alert("Please use at least one type of character and select it with 'y' or 'Y'.")
   }
 } 
 
-// lowercase letters 26
+const pswd=[]; //to contain the password
+var arr =[]; //to create possible characters to use
+
+//adds only relevant characters the charcter banks
+if(low=="y"){
 var a=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// uppercase letters 26
+  arr=arr.concat(a);
+}
+if(up=="y"){
 var A=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-// numbers 10
+  arr=arr.concat(A);
+}
+if(numbers=="y"){
 var num=["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-// special characters 33
+  arr=arr.concat(num);
+}
+if(special=="y"){
 var sp=[" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", ">", "=", "?", "@", '\\', '\[', '\]', "^", "_", "`", "}", "{", "|", "~"];
+  arr=arr.concat(sp);
+}
+console.log(arr)
 
+//takes characters from the banks and picks a random one for the desired length of the password
+for(var i=0; i<len; i++){
+  pswd[i]=arr[Math.floor(Math.random()*arr.length)];
+}
 
-var aAnumsp=a.concat(A,num,sp); 
-var anumsp=a.concat(num,sp);
-var asp=a.concat(sp);
-var aA=a.concat(A);
-var anum=a.concat(num);
-var aAsp=a.concat(A,sp);
-var aAnum=a.concat(A,num);
-var Anum=A.concat(num);
-var Anumsp=A.concat(num,sp);
-var Asp=A.concat(sp);
-var numsp=num.concat(sp);
-
-const pswd=[];
-
-for( var i=0; i<len; i++){
-if(low=="y" && up=="y" && numbers=="y" && special=="y"){
-pswd[i]=aAnumsp[Math.floor(Math.random()*aAnumsp.length)];
-}
-else if(low=="y" && numbers=="y" && special=="y"){
-  pswd[i]=anumsp[Math.floor(Math.random()*anumsp.length)];
-}
-else if(low=="y" && up=="y" && special=="y"){
-  pswd[i]=aAsp[Math.floor(Math.random()*aAsp.length)];
-}
-else if(low=="y" && up=="y" && numbers=="y"){
-  pswd[i]=aAnum[Math.floor(Math.random()*aAnum.length)];
-}
-else if(up=="y" && numbers=="y" && special=="y"){
-  pswd[i]=Anumsp[Math.floor(Math.random()*Anumsp.length)];
-}
-else if(low=="y" && special=="y"){
-  pswd[i]=asp[Math.floor(Math.random()*asp.length)];
-}
-else if(low=="y" && up=="y" ){
-  pswd[i]=aA[Math.floor(Math.random()*aA.length)];
-}
-else if(low=="y" && numbers=="y"){
-  pswd[i]=anum[Math.floor(Math.random()*anum.length)];
-}
-else if(up=="y" && numbers=="y"){
-  pswd[i]=Anum[Math.floor(Math.random()*Anum.length)];
-}
-else if(up=="y" && special=="y"){
-  pswd[i]=Asp[Math.floor(Math.random()*Asp.length)];
-}
-else if(numbers=="y" && special=="y"){
-  pswd[i]=numsp[Math.floor(Math.random()*numsp.length)];
-}
-else if(low=="y"){
-  pswd[i]=a[Math.floor(Math.random()*a.length)];
-}
-else if(up=="y"){
-  pswd[i]=A[Math.floor(Math.random()*A.length)];
-}
-else if(numbers=="y"){
-  pswd[i]=num[Math.floor(Math.random()*num.length)];
-}
-else{
-  pswd[i]=sp[Math.floor(Math.random()*sp.length)];
-}
-}
+//converts the array into a string and prints it to the browser
   var pswrd=pswd.join("");
-  console.log(pswrd); 
   document.getElementById("password").value=pswrd;
 }
 
